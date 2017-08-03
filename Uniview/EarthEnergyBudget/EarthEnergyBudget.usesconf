@@ -1,0 +1,103 @@
+mesh
+{
+    data incomingData ./modules/EarthEnergyBudget/EnergyBudget.raw
+    data outgoingData ./modules/EarthEnergyBudget/outgoing.raw
+    dataHints incomingData disablePostprocessing    
+    dataHints outgoingData disablePostprocessing    
+
+    glslVersion 330
+
+    enableTypeCheck true
+    creaseAngle 180.0
+   cullRadius 2000.0
+	
+    propertyCollection
+    {
+        EarthEnergyBudget
+        {
+            vec1f EarthEnergyBudgetRadius 1000.
+			vec1f EarthEnergyBudgetMarkerAlpha 1.0
+			vec1f EarthEnergyBudgetAnimationPeriod 25.0
+			vec1f EarthEnergyBudgetOvershoot 0.15
+			vec1f EarthEnergyBudgetRadStart -4
+			vec1f EarthEnergyBudgetRadEnd 2
+			vec1f EarthEnergyBudgetShortLength 0.075
+			vec1f EarthEnergyBudgetLongLength 0.15
+			vec1f EarthEnergyBudgetAlbedo  0.37        
+			vec4f EarthEnergyBudgetLongColor 0.6 0.2 0.1 1.0       
+			vec4f EarthEnergyBudgetShortColor 1.0 1.0 0.2 1.0       
+		}
+    }
+
+
+    pass # for Incoming and Reflected radiation
+    {
+        passScale 1
+        passEnable true
+        useDataObject incomingData
+
+        shader
+        {
+            type defaultMeshShader
+            {
+             
+                vertexShader ./modules/EarthEnergyBudget/shaders/meshPass0.vs
+                fragmentShader ./modules/EarthEnergyBudget/shaders/arrow_fragment.glsl
+                geometryShader ./modules/EarthEnergyBudget/shaders/EarthEnergyBudget_geometry.glsl
+                sceneTransformVar EarthBarycenter   SunScene         sunPos     0 0 0
+                sceneTransformVar EarthBarycenter   Earth            earthPos   0 0 0
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadius spriteRadius
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetAnimationPeriod animationPeriod
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetOvershoot overshoot
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadStart radStart
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadEnd radEnd
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetShortLength shortLength
+				StateManagerVar EarthEnergyBudget.EarthEnergyBudgetAlbedo albedo
+				StateManagerVar EarthEnergyBudget.EarthEnergyBudgetShortColor shortColor
+
+                glState
+                {
+                    UV_BLEND_FUNC GL_SRC_ALPHA GL_ONE
+                    UV_DEPTH_ENABLE true
+                    UV_BLEND_ENABLE true
+                    UV_WRITE_MASK_DEPTH false
+					UV_CULL_FACE_ENABLE false
+                }
+            }
+        }
+    }
+	
+    pass # for outgoing longwave radiation
+    {
+        passScale 1
+        passEnable true
+        useDataObject outgoingData
+
+        shader
+        {
+            type defaultMeshShader
+            {           
+                vertexShader ./modules/EarthEnergyBudget/shaders/meshPass0.vs
+                fragmentShader ./modules/EarthEnergyBudget/shaders/arrow_fragment.glsl
+                geometryShader ./modules/EarthEnergyBudget/shaders/EarthOutgoing_geometry.glsl
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadius spriteRadius
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetAnimationPeriod animationPeriod
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadEnd radEnd
+				StateManagerVar EarthEnergyBudget.EarthEnergyBudgetRadStart radStart
+                StateManagerVar EarthEnergyBudget.EarthEnergyBudgetLongLength longLength
+				StateManagerVar EarthEnergyBudget.EarthEnergyBudgetLongColor longColor
+
+                glState
+                {
+                    UV_BLEND_FUNC GL_SRC_ALPHA GL_ONE
+                    UV_DEPTH_ENABLE true
+                    UV_BLEND_ENABLE true
+                    UV_WRITE_MASK_DEPTH false
+					UV_CULL_FACE_ENABLE false
+                }
+            }
+        }
+    }
+	
+
+}

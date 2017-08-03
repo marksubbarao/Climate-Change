@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<clip version="2.6">
+	<object name="orbitcamera">
+		<gui name="Camera"></gui>
+		<property name="Rotation" type="rotation" hidden="0" constant="0">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="monotone">-0.192750 0.127995 0.960890 0.152168</keyframe>
+				<keyframe frame="471" interpolation="monotone">-0.168688 0.255149 0.937692 0.164853</keyframe>
+				<keyframe frame="700" interpolation="linear">-0.209889 0.248539 0.866446 0.378743</keyframe>
+				<keyframe frame="800" interpolation="monotone">-0.265294 0.179374 0.717104 0.619037</keyframe>
+				<keyframe frame="900" interpolation="monotone">-0.258968 0.187944 0.731058 0.602634</keyframe>
+				<keyframe frame="1800" interpolation="monotone">-0.248682 0.196209 0.749399 0.581429</keyframe>
+			</block>
+		</property>
+		<property name="Offset" type="offset" hidden="0" constant="0">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+				<keyframe frame="471" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+				<keyframe frame="700" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+				<keyframe frame="800" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+				<keyframe frame="900" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+				<keyframe frame="1800" interpolation="monotone">0.000000 0.000000 0.000000 1.000000</keyframe>
+			</block>
+		</property>
+		<property name="Distance" type="distance" hidden="0" constant="0">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="monotone">40524.533691 km</keyframe>
+				<keyframe frame="471" interpolation="monotone">745.191650 km</keyframe>
+				<keyframe frame="700" interpolation="monotone">249.155693 km</keyframe>
+				<keyframe frame="800" interpolation="monotone">106.440258 km</keyframe>
+				<keyframe frame="900" interpolation="monotone">61.855631 km</keyframe>
+				<keyframe frame="1800" interpolation="monotone">25.911732 km</keyframe>
+			</block>
+		</property>
+		<property name="Target" type="target" hidden="1" constant="1">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="smooth">KeelingCurve</keyframe>
+			</block>
+		</property>
+		<property name="Lock" type="string" hidden="1" constant="1">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="smooth"></keyframe>
+			</block>
+		</property>
+		<property name="Time" type="time" hidden="0" constant="0">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="linear">2017 2 2 17 52 30.618200</keyframe>
+				<keyframe frame="471" interpolation="linear">2017 2 2 17 52 30.717655</keyframe>
+				<keyframe frame="700" interpolation="linear">2017 2 2 17 52 30.717655</keyframe>
+				<keyframe frame="800" interpolation="linear">2017 2 2 17 52 30.717655</keyframe>
+				<keyframe frame="900" interpolation="linear">2017 2 2 17 52 30.717655</keyframe>
+				<keyframe frame="1800" interpolation="linear">2017 2 2 17 52 30.717655</keyframe>
+			</block>
+		</property>
+		<property name="AnnualTime" type="bool" hidden="1" constant="1">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="smooth">0</keyframe>
+			</block>
+		</property>
+		<property name="AnnualTimeMark" type="time" hidden="1" constant="1">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="smooth">1969 12 31 23 59 59.816064</keyframe>
+			</block>
+		</property>
+	</object>
+	<object name="Commands">
+		<property name="ToProducer" type="string" hidden="0" constant="0">
+			<block start="0" size="1">
+				<keyframe frame="0" interpolation="smooth"></keyframe>
+			</block>
+		</property>
+		<property name="ToTheater" type="string" hidden="0" constant="0">
+			<block start="0" size="1">
+				<keyframe frame="0" interpolation="smooth"></keyframe>
+			</block>
+		</property>
+	</object>
+	<object name="KeelingCurve">
+		<property name="Alpha" type="alpha" hidden="0" constant="0">
+			<block start="0" size="1431">
+				<keyframe frame="0" interpolation="smooth">0.000000</keyframe>
+				<keyframe frame="842" interpolation="smooth">0.000000</keyframe>
+				<keyframe frame="868" interpolation="smooth">1.000000</keyframe>
+			</block>
+		</property>
+		<property name="KeelingCurveYearPlot" type="float" hidden="0" constant="0">
+			<block start="0" size="1801">
+				<keyframe frame="0" interpolation="smooth">1974.000000</keyframe>
+				<keyframe frame="776" interpolation="smooth">1974.000000</keyframe>
+				<keyframe frame="892" interpolation="linear">1974.000000</keyframe>
+				<keyframe frame="1031" interpolation="linear">1976.000000</keyframe>
+				<keyframe frame="1137" interpolation="cubic">1976.000000</keyframe>
+				<keyframe frame="1430" interpolation="linear">1980.000000</keyframe>
+				<keyframe frame="1500" interpolation="cubic">1980.000000</keyframe>
+				<keyframe frame="1800" interpolation="cubic">2017.000000</keyframe>
+			</block>
+		</property>
+		<property name="Enabled" type="bool" hidden="0" constant="0">
+			<block start="0" size="1431">
+				<keyframe frame="0" interpolation="step">1</keyframe>
+			</block>
+		</property>
+	</object>
+</clip>
